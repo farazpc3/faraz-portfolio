@@ -3,6 +3,38 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: grid;
+  grid-template-areas:
+    "main-header main-header main-header"
+    "left-side-bar main right-side-bar"
+    "main-footer main-footer main-footer";
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 3fr auto 1fr;
+}
+
+.main-header {
+  grid-area: main-header;
+  display: block;
+}
+
+.left-side-bar {
+  grid-area: left-side-bar;
+  display: inline-block;
+}
+
+.right-side-bar {
+  grid-area: right-side-bar;
+  display: inline-block;
+}
+
+.main {
+  grid-area: main;
+  display: inline-block;
+}
+
+.main-foooter {
+  grid-area: main-footer;
+  display: block;
 }
 
 .logo {
