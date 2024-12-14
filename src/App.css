@@ -1,7 +1,15 @@
+@font-face {
+  font-family: Londrina_Shadow;
+  src: url("./assets/fonts/Londrina_Shadow/LondrinaShadow-Regular.ttf");
+  font-size: normal;
+  font-weight: normal;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 1rem 3rem;
   text-align: center;
   display: grid;
   grid-template-areas:
@@ -35,6 +43,11 @@
 .main-foooter {
   grid-area: main-footer;
   display: block;
+}
+
+h1 {
+  display: inline-block;
+  font-family: ;
 }
 
 .logo {
