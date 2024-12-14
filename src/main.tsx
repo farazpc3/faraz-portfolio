@@ -9,10 +9,5 @@ const root = createRoot(rootElement!);
 root.render(
   <StrictMode>
     <App />
-    <ul>
-      <li>react</li>
-      <li>vite</li>
-      <li>typescript</li>
-    </ul>
   </StrictMode>
 );

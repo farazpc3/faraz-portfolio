@@ -6,11 +6,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: grid;
-  grid-template-areas:
-    "main-header main-header main-header"
-    "left-side-bar main right-side-bar"
-    "main-footer main-footer main-footer";
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -27,6 +29,7 @@ body {
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 100vw;

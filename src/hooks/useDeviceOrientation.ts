@@ -1,32 +1,30 @@
 import { useEffect, useState } from "react";
 import { useOrientation } from "react-use";
 
-type OrientationType = "bottom" | "top" | "left" | "right";
+type OrientationType = "portrait" | "landscape";
 
-const useDeviceOrientation = (): OrientationType => {
+const useDeviceOrientation = (): [OrientationType, boolean] => {
   const orientation = useOrientation();
-  const [position, setPosition] = useState<OrientationType>("bottom");
+  const [isPortrait, setIsPortrait] = useState<boolean>(true);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(
+    window.innerWidth <= 1024
+  );
 
   useEffect(() => {
-    switch (orientation.angle) {
-      case 0:
-        setPosition("bottom");
-        break;
-      case 90:
-        setPosition("right");
-        break;
-      case -90:
-        setPosition("left");
-        break;
-      case 180:
-        setPosition("top");
-        break;
-      default:
-        setPosition("bottom");
-    }
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1024);
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    setIsPortrait(window.innerHeight > window.innerWidth);
   }, [orientation]);
 
-  return position;
+  return [isPortrait ? "portrait" : "landscape", isSmallScreen];
 };
 
 export default useDeviceOrientation;
